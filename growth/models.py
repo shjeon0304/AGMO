@@ -1,18 +1,4 @@
 from django.db import models
-from django.core.exceptions import ValidationError
-from django.urls import reverse
-
-# Create your models here.
-class Blog(models.Model):
-    title = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-    body = models.TextField()
-
-    def __str__(self):
-        return self.title
-
-    def summary(self):
-        return self.body[:100]
 
 class Crop(models.Model):
     name = models.CharField(max_length=255)
@@ -28,4 +14,6 @@ class Task(models.Model):
     def __str__(self):
         return self.name
     
+#Class Proper_date() 만들어서 작업별로 추천 일자 나타내고 일지쓸때랑 연계하자 이건 나중에 ㅠ
+
 

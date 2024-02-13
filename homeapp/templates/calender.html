@@ -1,0 +1,75 @@
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+<div class="calendar">
+    <div class="calendar_header">
+        <div class="calendar_nav">
+            <button class="nav-btn go-prev">&lt;</button>
+            <span class="year"></span>년
+            <span class="month"></span>월
+            <!-- <button class="nav-btn go-today">오늘로 가기</button> -->
+            <button class="nav-btn go-next">&gt;</button>
+        </div>
+    </div>
+    <div class="calendar_main">
+        <div class="days">
+            <div class="day">일</div>
+            <div class="day">월</div>
+            <div class="day">화</div>
+            <div class="day">수</div>
+            <div class="day">목</div>
+            <div class="day">금</div>
+            <div class="day">토</div>
+        </div>
+        <div class="dates"></div>
+    </div>
+
+    <!-- 예약 창 -->
+    <div class="resv-wrapper">
+        <div class="resv-bg">
+            <button class="resv-close">X</button>
+            <div class="resv_info">
+                <div class="resv_ym">
+                    <span class="year"></span>년
+                    <span class="month"></span>월
+                    <span class="resv-day">11</span>일
+                </div>
+                <div class="resv-remain">
+                </div>
+                <h3>
+                  작물 종류
+                </h3>
+                <div class="croptype">  
+                    <button class="crop_btn">팥 </button>
+                    <button class="crop_btn">밀 </button>
+                </div>
+                <h3>
+                    밭 선택
+                </h3>
+                <div class="field-list">  
+                    <button class="crop_btn">1번 밭 </button>
+                    <button class="crop_btn">2번 밭 </button>
+                    <button class="crop_btn">3번 밭 </button>
+                </div>
+                <h3>
+                    농업활동 및 작업시간 선택
+                </h3>
+                <div class="resv-event">
+                    <button class="crop_btn">파종 </button>
+                    <button class="crop_btn">하수구 정비 </button>
+                    <button class="crop_btn">시비 </button>
+                </div>
+            </div>
+            <div class="resv_set">
+                <input class="resv_set time" type="time" name="" id="">
+                <button class="resv_btn purchase">저장</button>
+                <button class="resv_btn cancel">취소</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script src="{% static 'js/calendar.js' %}"></script>
+<script src="{% static 'js/reserve.js' %}"></script>
+{% endblock %}

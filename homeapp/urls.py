@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('new/', views.new, name = 'new'),
@@ -8,5 +11,9 @@ urlpatterns = [
     path('postcreate/', views.postcreate, name='postcreate'),
     path('update/<int:blog_id>/', views.update, name='update'),
     path('delete/<int:blog_id>/', views.delete, name='delete'),
+    path('index/', views.index, name='index'), 
+    
+    path('calender/', views.calender, name= 'calender'),
+    path('growth/', views.growth, name= 'growth'),
 
 ]
