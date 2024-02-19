@@ -16,14 +16,27 @@ class Blog(models.Model):
 
 class Crop(models.Model):
     name = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.CharField(max_length = 255)
+
+    def __str__(self):
+        return self.name
+
+
+class Farmland(models.Model):
+    crop = models.ForeignKey(Crop, on_delete=models.CASCADE)
+    land = models.CharField(max_length = 100)
+
+    def __str__(self):
+        return self.land
+
 
 class Task(models.Model):
-    crop = models.ForeignKey(Crop, on_delete=models.CASCADE)
+    land = models.ForeignKey(Farmland, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    description = models.TextField()
-    progress = models.IntegerField(default=0) 
-    
+    description = models.CharField(max_length = 255)
+    progress = models.IntegerField()
+    start_date = models.DateField()
+    Finish_date = models.DateField()
 
     def __str__(self):
         return self.name
