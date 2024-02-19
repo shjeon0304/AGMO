@@ -1,33 +1,58 @@
-{% load static %}
+{% extends 'base.html' %}
+{%block content%}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>작물 관리</title>
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qXvRTVSJhHpf/Wh38k193l4dZ9646V5Z3I0c34N6m9Y578v45s7uOL0" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+sQAMFwqqq3u6X2xAIAqEi93mOUAXwe/L46oK9uK7g17dSloC3He+fYMH3T" crossorigin="anonymous"></script>
+  <style>
+    .progress-bar {
+      background-color: #008000;
+    }
+  .card {
+  margin: 0 auto;
+}
+.card-body {
+      text-align: left;
+}
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>작물 관리</h1>
+    <h1 class="mt-6 text-center">작물 관리</h1>
     <div class="row">
       {% for crop in crops %}
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">
+        <div class="col-md-12">
+          <div class="card crop-card">
+            <div class="card-header bg-primary text-white">
               <h2>{{ crop.name }}</h2>
             </div>
             <div class="card-body">
               <p>{{ crop.description }}</p>
               <ul class="list-group">
-                {% for task in crop.task_set.all %}
+                {% for farmland in crop.farmland_set.all %}
                   <li class="list-group-item">
-                    <span class="badge badge-primary">{{ task.name }}</span>
-                    
-                    {{ task.progress }}%
-                    <div>
-                        <progress value="{{task.progress}}" max="100"></progress>
-                    </div>
+                    <span class="badge badge-primary">{{ farmland.land }}</span>
+                    <ul>
+                      {% for task in farmland.task_set.all %}
+                        <li>
+                          <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{{ task.progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ task.progress }}%">
+                              {{task.name}} : {{ task.progress }}%
+                            </div>
+                          </div>
+                        </li>
+                      {% endfor %}
+                    </ul>
                   </li>
                 {% endfor %}
               </ul>
@@ -37,7 +62,7 @@
       {% endfor %}
     </div>
   </div>
-  <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
+{% endblock %}
+
