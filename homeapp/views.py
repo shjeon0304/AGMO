@@ -6,7 +6,10 @@ from .models import Blog
 # Create your views here.
 def index(request):
     return render(request, "index.html")
-    
+
+def login(request):
+    return render(request, "login.html")
+
 def home(request):
     blogs = Blog.objects.order_by('-id')
     return render(request, 'home.html',{'blogs':blogs})
