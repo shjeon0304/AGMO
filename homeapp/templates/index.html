@@ -12,6 +12,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gugi&family=Song+Myung&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Song+Myung&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="{%static 'css/styles.css'%}" rel="stylesheet" />
@@ -59,11 +60,11 @@
                             </a>
                             <div class="sb-sidenav-menu-heading">Service</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon" href="{% url 'calender' %}"><i class="fas fa-columns"></i></div>
                                 나만의 영농 캘린더
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <a class="nav-link collapsed" href="{% url 'growth' %}" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <a class="nav-link collapsed" href="growth.html" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 작물 관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -91,12 +92,22 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-0">
+                <header class="py-0">
+                    <div class="container-fluid px-3">
                         <h1 class="mt-0">Basirak 영농일지</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">최근 영농작성 중인 영농일지..</li>
-                        </ol>
+                        <ol class="breadcrumb mb-1"></ol>
+                    </div>
+                    <div class="container px-3">
+                        <div class="p-4 p-lg-40 bg-light rounded-2 text-center">
+                            <div class="m-4 m-lg-10">
+                                <h1 class="display-25 fw-bold">환영합니다!</h1>
+                                <p class="fs-5">매번 수기로 쓰는 일지. 불편하지 않으신가요? 바시락 영농일지로 쉽고 빠르게 기록하세요 !</p>
+                                <a class="btn btn-primary btn-lg" href="#!">새로운 작물 등록하기</a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <main>     
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
@@ -118,7 +129,7 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">콩</div>
+                                    <div class="card-body">팥</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="{% url 'create' %}">작성하기</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -141,9 +152,9 @@
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
                                         <a class="small text-white stretched-link" href="{% url 'calender' %}"></a>
-                                        캘린더 미리보기
+                                        캘린더
                                     </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="200"></canvas></div>
+                                    <div class="card-body">확인하기<canvas id="myAreaChart" width="100%" height="10"></canvas></div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
@@ -151,26 +162,14 @@
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
                                         <a class="small text-white stretched-link" href="{% url 'growth'%}"></a>
-                                        성장도 미리보기 graph
+                                        작물 성장도 graph
                                     </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="200"></canvas></div>
+                                    <div class="card-body">확인하기<canvas id="myBarChart" width="100%" height="10"></canvas></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
