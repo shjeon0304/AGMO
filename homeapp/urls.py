@@ -15,5 +15,7 @@ urlpatterns = [
     
     path('calender/', views.calender, name= 'calender'),
     path('growth/', views.growth, name= 'growth'),
+    path('diary/', views.diary, name='diary'),
+    path('create_diary/',views.page_create, name='create_diary'),
 
 ]

@@ -59,6 +59,36 @@ def delete(request, blog_id):
     blog.delete()
     return redirect('/')
 
+#일지 기록
+from .models import Cropdata
+
+def diary(request):
+    pages = Cropdata.objects.all()
+    context = {"pages": pages}
+    return render(request, 'diary.html', context)
+
+def page_create(request):
+    if request.method =="POST":
+        form = PageForm(request.POST)
+        if form.is_valid():
+            new_page = form.save()
+            return redirect("page-detail", page_id=new_page.id)
+    else:
+        form = PageForm()
+    return render(request, "diarys/page_form.html", {"form": form})
+
+
+def write(request):
+    posts = Cropdata()
+    posts.crop = request.POST['crop']
+    posts.fieldNum = request.POST['num']
+    posts.cropWork = request.POST['cropwork']
+    posts.content = request.POST['content']
+    posts.pesticide = request.POST['pesticide']
+    posts.save()
+    return render(request, 'view_diary.html', {'posts':posts})
+
+
 
 #calender
 import calendar
