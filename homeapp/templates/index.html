@@ -50,11 +50,11 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Introduction</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="{% url 'index' %}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Team basirak이란?
                             </a>
-                            <a class="nav-link" href="login.html">
+                            <a class="nav-link" href="{% url 'login' %}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Login
                             </a>
@@ -113,7 +113,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">쌀</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{% url 'create' %}">작성하기</a>
+                                        <a class="small text-white stretched-link" href="{% url 'diary' %}">작성하기</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">밀</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{% url 'create' %}">작성하기</a>
+                                        <a class="small text-white stretched-link" href="{% url 'diary' %}">작성하기</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">팥</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{% url 'create' %}">작성하기</a>
+                                        <a class="small text-white stretched-link" href="{% url 'diary' %}">작성하기</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@
                                 <div class="card bg-info text-white mb-4">
                                     <div class="card-body">고추</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{% url 'create' %}">작성하기</a>
+                                        <a class="small text-white stretched-link" href="{% url 'diary' %}">작성하기</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
